@@ -1,0 +1,88 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    color: white;
+    font-size: 30px;
+    background-image: radial-gradient(#888, #222);
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.carusel {
+    /* border: 10px solid #555; */
+    width: 500px;
+    height: 700px;
+    position: relative;
+    perspective: 1000px;
+    top: 100px;
+    left: 50px;
+}
+
+.carusel .slide {
+    width: 500px;
+    height: 700px;
+    /* border: 1px solid green; */
+    position: absolute;
+    transition: transform 1s;
+    z-index: 1s 0.8s; 
+}
+
+.carusel .slide a {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+}
+.carusel .slide a::after {
+    content: url(chevron_right_FILL0_wght400_GRAD0_opsz24.svg);
+    background-color: #fff8;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 18px;
+    padding: 3px;
+
+}
+.carusel .slide:nth-child(1) {
+    filter: brightness(80%);
+    transform: rotateY(-30deg) translateZ(-400px);
+    opacity: 0.5;
+
+}
+.carusel .slide:nth-child(2) {
+    filter: brightness(90%);
+    transform: rotateY(-30deg) translateZ(-200px);
+    opacity: 0.75;
+}
+.carusel .slide:nth-child(3) {
+    background-color: #1328;
+    transform: rotateY(-30deg) translateZ(0px);
+}
+
+#state-3:target .slide:nth-child(2) {
+    transform: rotateY(-30deg) translateZ(0px);
+    z-index: 3;
+}
+#state-3:target .slide:nth-child(3) {
+    transform: rotateY(-30deg) translateZ(-400px);
+    z-index: 1;
+}
+#state-3:target .slide:nth-child(1) {
+    transform: rotateY(-30deg) translateZ(-200px);
+    z-index: 3;
+}
+/* #state-2 .slide:nth-child(2) {
+    transform: rotateY(-30deg) translateZ(0px);
+    z-index: 3;
+}
+#state-2 .slide:nth-child(3) {
+    transform: rotateY(-30deg) translateZ(-400px);
+    z-index: 1;
+}
+
+#state-2 .slide:nth-child(1) {
+    transform: rotateY(-30deg) translateZ(-200px);
+    z-index: 3;
+} */
